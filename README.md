@@ -1,0 +1,1 @@
+# Hactiv8-HQL-Assigment
