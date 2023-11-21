@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -14,7 +15,7 @@ type Biodata struct {
 
 func main() {
 
-	filterName := "Thomas"
+	filterName := takeName()
 	result := filterBiodataByName(generateBiodata(), filterName)
 	fmt.Println(result)
 
@@ -61,4 +62,14 @@ func filterBiodataByName(list []Biodata, nameFilter string) []Biodata {
 		}
 	}
 	return result
+}
+
+func takeName() string {
+
+	if len(os.Args) < 2 {
+		fmt.Println("Put the name for filter")
+		return ""
+	}
+	return os.Args[1]
+
 }
